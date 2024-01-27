@@ -20,12 +20,17 @@ function submitForm(e) {
     
     //display the result
     displayResults();
+
+    //Disabled form fields after submit
+    document.getElementById('poll-form')
+            .querySelectorAll('input, button')
+            .forEach((el) => el.setAttribute('disabled', true))
 };
 
 function displayResults() {
     const results = document.getElementById('results')//grabs the results div
     results.innerHTML = ' '; //clears the result when this runs initially
-    for (const [option, votes] of poll) { //running a forOf loop here to display the results
+    for (const [option, votes] of poll) { //running a forOf loop here to display the results(keys and values)
         const optionElement = document.createElement('div');
         optionElement.classList.add(  //adds bootstrap classes
             'border-bottom', //border
